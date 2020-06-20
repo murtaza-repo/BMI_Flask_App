@@ -20,4 +20,5 @@ def calcBmi(weight, height):
    bodyMassIndex = round((weight/(heightInMeter**2)),2)
    return bodyMassIndex
 
-app.run()
+if __name__ == '__main__':
+   app.run(debug=True)
