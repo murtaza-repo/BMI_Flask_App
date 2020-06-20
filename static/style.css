@@ -1,0 +1,23 @@
+body{
+    background-color: darkslateblue;
+}
+
+legend{
+    color: snow !important;
+}
+
+label{
+    font-family: 'Times New Roman', Times, serif;
+    color: snow !important;
+}
+
+input[type='number'], input[type='number']:focus{
+    color: snow;
+    border-bottom: 1px solid snow !important;
+}
+
+h3{
+    color: snow;
+    text-align: center;
+    font-family: Sofia;
+}
