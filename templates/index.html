@@ -12,12 +12,16 @@
 <body>
     <h3>BMI Calculator</h3>
 
-    <div class="row">
-        <div class="col s2"></div>
-        <fieldset class="col s8" style="border-radius: 10px;">
+    <div class="row outer">
+        <div class="col m2"></div>
+        <fieldset class="col s12 m4" style="border-radius: 10px;">
             <legend style="font-family: 'Times New Roman', Times, serif;">Enter your Details</legend>
-            <form action="/" method="POST" style="margin-top:10px;">
+            <form action="/process" method="POST" style="margin-top:10px;">
                 <div class="row">
+                    <div class="input-field col s12">
+                        <input name="name" type="text" required>
+                        <label for="name">Name</label>
+                    </div>
                     <div class="input-field col s12">
                         <input name="weight" type="number" min="0" max="150" required>
                         <label for="weight">Weight (kg)</label>
@@ -36,16 +40,26 @@
                 </div>
             </form>
         </fieldset>
-        <div class="col s2"></div>
+        <fieldset class="col s12 m4" style="border-radius: 10px;">
+            <legend style="font-family: 'Times New Roman', Times, serif;">Recent Results</legend>
+            <legend class="right"><a href="/delete" class="btn btn-small"><p>X</p></a></legend>
+            {% if result %}
+                <ul>
+                {% for r in result %}
+                    <li style="color: snow; font-family: 'Times New Roman', Times, serif; font-size: large;">{{ r.name }} : {{ r.bmi }}</li>
+                    <hr>
+                {% endfor %}
+                </ul>
+            {% else %}
+                <ul>
+                    <li style="color: snow; font-family: 'Times New Roman', Times, serif; font-size: large;">No recent calculations...</li>
+                </ul>    
+            {% endif %}
+        </fieldset>
+        <div class="m2"></div>
     </div>
 
-    <div class="row">
-        <div class="bmi center">
-            {% if bmi %}
-            <p style="font-size: large; font-family: 'Times New Roman', Times, serif; color: snow;">Your BMI is computed as : {{ bmi }}</p>
-            {% endif %}
-        </div>
-    </div>
+    
 
 </body>
 
